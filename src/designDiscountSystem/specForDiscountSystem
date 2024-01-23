@@ -1,0 +1,40 @@
+                                    :Design a Generic Discount System:
+	
+	Problem Statement: NQX is a retailer who provides services and sells products, NQX needs 
+	a discount system as part of it's billing system to apply discounts on it's services and 
+	products upon a order/purchase by a customer.
+
+	if the customer has a coupon - 	
+		Coupon can be used only one time
+		Coupon can be applicable for all customers
+		Coupon can give minimum Z% off on $X amount for a product/service
+	
+	System shall consist of these classes: Customer, PurchaseOrder, DiscountRate, DiscountSystem
+
+
+                                        -:Additional Information:-
+
+	- NQX offers 3 types of memberships: Premium, Gold and Silver.
+	- Premium, gold and silver members receive a discount of 20%, 15%, and 10%, respectively, for all services provided. 
+	- All members receives a flat 10% discount on every product purchased 
+	- Allow the retailer to update the discount rates for products or services dynamically
+	
+	- Implement methods in the DiscountSystem class to manage memberships, such as upgrading or down grading membership 
+	  for a customer based on the purchase frequency.
+	
+	- Use a database or file storage to persist customer details, membership types, purchase history, etc
+
+	
+	
+	                                      -:Work Flow:-
+	
+	- DiscountSystem is responsible for calculating the total discount to the customer.
+	- It thus so by the following steps - 
+		1. If the customer has any Coupon, the system will apply that to the netPurchasedPrice, if valid. If the provided coupon is invalid then nothing will be applied
+		2. If PurchasedType is product, product discount will be applied
+		3. If PurchasedType is service, apply membership tier discount based on the order frequency of the customer
+		4. Finally apply tax on the purchase
+	 
+	
+	
+	

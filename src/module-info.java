@@ -2,8 +2,9 @@
  * 
  */
 /**
- * @author SUDIP BASU
+ * @author SUDIP BOSE
  *
  */
 module DesignXYZ {
+	requires com.opencsv;
 }
