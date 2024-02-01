@@ -6,5 +6,4 @@
  *
  */
 module DesignXYZ {
-	requires com.opencsv;
 }
