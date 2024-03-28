@@ -8,13 +8,13 @@ public class OrderedStream{
 	private int iter;
 	private String[] stream;
 	// Size of the stream should be kept at this
-	private final int STRAM_SIZE;
+	private final int STREAM_SIZE;
 	
 	public OrderedStream(int n) {
 		// TODO Auto-generated constructor stub
-		this.STRAM_SIZE = n;
+		this.STREAM_SIZE = n;
 		this.iter = 0;
-		this.stream = new String[STRAM_SIZE];
+		this.stream = new String[STREAM_SIZE];
 	}
 	
 	
