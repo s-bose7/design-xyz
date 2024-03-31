@@ -6,7 +6,7 @@ Given several logs that each log contains a unique id, timestamp and a value str
 Given a log, store the log in the storage system.
 
 ```json
-log = {
+{
     _id: 136584,
     timestamp: "2017:01:01:23:59:59",
     value: "abcd"
@@ -16,7 +16,7 @@ log = {
 A query consist of a timestamp range & a granularity, granularity means the time level for consideration or how precise the range should be (i.e. to the exact Day, Minute, etc.). Return the id of logs whose timestamps are within the range from start to end inclusive
 
 ```json
-query = { 
+{ 
     "start": "2017:01:01:23:59:59",
     "end": "2017:01:02:23:59:59",
     "granularity": "Day"
