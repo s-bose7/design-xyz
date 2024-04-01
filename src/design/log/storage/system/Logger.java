@@ -14,26 +14,27 @@ public class Logger {
 	private List<Log> logStore;
 	private int size;
 	private Map<String, Integer> granularityToIndexMap;
-	private static final int MAX_CAPACITY = 100000;
+	public static final int MAX_CAPACITY = 100000;
 	/**
      * Constructs a Logger object with an empty log store and initializes the granularity to index map.
      */
 	public Logger() {
 		this.size = 0;
 		this.logStore = new ArrayList<Log>();
-		this.granularityToIndexMap = new HashMap<>();
-		startGranularityMapper();
+		this.granularityToIndexMap = startGranularityMapper();
 	}
 	/**
      * Initializes the granularity to index map with predefined granularities and their corresponding 
      * index in the timestamp string.
      */
-	private void startGranularityMapper() {	
+	private Map<String, Integer> startGranularityMapper() {	
+		Map<String, Integer> granularityMap = new HashMap<>(); 
 		int[] granularityIndex = new int[] {4, 7, 10, 13, 16, 19};
 		String[] granularities = new String[] {"Year", "Month", "Day", "Hour", "Minuite", "Second"};
 		for(int i=0; i<granularities.length; i++) {
-			granularityToIndexMap.put(granularities[i], granularityIndex[i]);
+			granularityMap.put(granularities[i], granularityIndex[i]);
 		}
+		return granularityMap;
 	}
 	/**
      * Stores a log with the given id, timestamp, and value in the log store.
