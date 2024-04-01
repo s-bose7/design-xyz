@@ -7,10 +7,11 @@ Given a log, store the log in the storage system.
 
 ```json
 {
-    _id: 136584,
-    timestamp: "2017:01:01:23:59:59",
-    value: "abcd"
+    "_id": 136584,
+    "timestamp": "2017:01:01:23:59:59",
+    "value": "abcd"
 }
+
 ```
 ## Query:
 A query consist of a timestamp range & a granularity, granularity means the time level for consideration or how precise the range should be (i.e. to the exact Day, Minute, etc.). Return the id of logs whose timestamps are within the range from start to end inclusive
