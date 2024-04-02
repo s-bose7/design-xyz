@@ -13,23 +13,24 @@ public class CircularQueue implements Queue {
 		
 		this.front = this.rear = null;
 	}
-
+	
 	@Override
-	public void addFirst(int element) {
+	public void addLast(int element) {
 		// TODO Auto-generated method stub
-		if(isFull()){
-            return;
-        }
+		if(isFull()) {
+			return;
+		}
 		ListNode node = new ListNode(element);
-		if(front == null) {
+		if(isEmpty()) {
 			front = rear = node;
 		}else {
 			rear.next = node;
-			node.prev = rear;
-			rear = node;
+	        node.prev = rear;
+	        rear = node;
 		}
-		++size;
+        ++size;
 	}
+	
 
 	@Override
 	public int removeFirst() {
