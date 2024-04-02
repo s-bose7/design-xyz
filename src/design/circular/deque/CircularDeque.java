@@ -10,19 +10,20 @@ public class CircularDeque extends CircularQueue implements Deque {
 	}
 
 	@Override
-	public void addLast(int element) {
+	public void addFirst(int element) {
 		// TODO Auto-generated method stub
-		if(isFull()) {
-			return;
-		}
-		if(isEmpty()) {
-			addFirst(element);
-		}
+		if(isFull()){
+            return;
+        }
 		ListNode node = new ListNode(element);
-		rear.next = node;
-        node.prev = rear;
-        rear = node;
-        ++size;
+		if(isEmpty()) {
+			front = rear = node;
+		}else {
+			node.next = front;
+			front.prev = node;
+			front = node;
+		}
+		++size;
 	}
 
 	@Override
