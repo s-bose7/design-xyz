@@ -13,11 +13,11 @@ public interface Queue {
     }
 	
 	/**
-     * Adds an element to the front of the queue.
+     * Adds an element to the rear of the queue.
      *
      * @param element the element to add
      */
-    void addFirst(int element);
+    void addLast(int element);
 
     /**
      * Removes and returns the first element of the queue.
