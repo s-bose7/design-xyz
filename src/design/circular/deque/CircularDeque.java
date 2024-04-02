@@ -1,65 +1,41 @@
 package design.circular.deque;
 
-public class CircularDeque<E> implements Deque<E> {
+import design.circular.queue.CircularQueue;
 
-	@Override
-	public void addFirst(E element) {
-		// TODO Auto-generated method stub
-		
+public class CircularDeque extends CircularQueue implements Deque { 
+
+	public CircularDeque(int n) {
+		// TODO Auto-generated constructor stub
+		super(n);
 	}
 
 	@Override
-	public void addLast(E element) {
+	public void addLast(int element) {
 		// TODO Auto-generated method stub
-		
+		if(isFull()) {
+			return;
+		}
+		if(isEmpty()) {
+			addFirst(element);
+		}
+		ListNode node = new ListNode(element);
+		rear.next = node;
+        node.prev = rear;
+        rear = node;
+        ++size;
 	}
 
 	@Override
-	public E removeFirst() {
+	public int removeLast() {
 		// TODO Auto-generated method stub
-		return null;
+		if(isEmpty()) {
+			return -1;
+		}
+		ListNode node = rear;
+		int val = node.val;
+		rear = rear.prev;
+		node = null;
+		--size;
+		return val;
 	}
-
-	@Override
-	public E removeLast() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public E getFirst() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public E getLast() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isFull() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
