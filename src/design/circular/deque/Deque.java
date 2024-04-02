@@ -5,11 +5,11 @@ import design.circular.queue.Queue;
 public interface Deque extends Queue {
 
     /**
-     * Adds an element to the end of the dequeue.
+     * Adds an element to the front of the dequeue.
      *
      * @param element the element to add
      */
-    void addLast(int element);
+    void addFirst(int element);
 
     /**
      * Removes and returns the last element of the dequeue.
