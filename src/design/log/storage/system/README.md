@@ -1,3 +1,5 @@
+# Design a log storage system
+
 Given several logs that each log contains a unique id, timestamp and a value string. Timestamp is a string that has the following format: `Year:Month:Day:Hour:Minute:Second`, for example, `2017:01:01:23:59:59`. All domains are zero-padded decimal numbers.
 
 # Roadmap:
