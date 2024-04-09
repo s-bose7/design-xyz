@@ -1,7 +1,5 @@
 # Design MinStack
 
-## Introduction
-
 Welcome to the MinStack solution documentation! This document outlines the design and implementation of a stack data structure that supports operations such as push, pop, top, and retrieving the minimum element in constant time.
 
 ## Problem Statement
