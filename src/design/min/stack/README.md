@@ -14,9 +14,31 @@ Design a stack data structure, called MinStack, with the following requirements:
 
 Additionally, it's required to implement a solution with O(1) time complexity for each function.
 
-## System overview
+## Overview
 
-
+```java
+class DesignMaxFrequenyStack {
+    public static void main(String[] args){
+        MinStack minStack = new MinStack();
+        
+        minStack.push(5);
+        minStack.push(2);
+        minStack.push(3);
+        minStack.push(3);
+        minStack.push(5);
+        minStack.push(5);
+        
+        minStack.pop(); // 5
+        minStack.top(): // 5
+        minStack.getMin(); // 2
+        minStack.pop(); // 5
+        minStack.pop(); // 3
+        minStack.pop(); // 3
+        minStack.pop(); // 2
+        minStack.getMin(); // 5
+    }
+}
+```
 
 ## Constraints
 
