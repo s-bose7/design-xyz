@@ -71,7 +71,7 @@ public class DynamicArray {
         if(index < 0 || index >= capacity){
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
         }
-	return array[index];
+        return array[index];
     }
     
     
@@ -157,7 +157,11 @@ public class DynamicArray {
      * Removes all of the elements from this list.  The list will
      * be empty after this call returns.
      */
-    public void clear(){
+    public void clear() {
+        for (int i = 0; i < size; i++)
+            array[i] = 0;
+
+        size = 0;
     }
 }
 
