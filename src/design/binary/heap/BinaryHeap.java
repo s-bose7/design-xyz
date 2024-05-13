@@ -21,6 +21,11 @@ public class BinaryHeap {
 	 * Size of the current heap (number of elements present) 
 	 */
 	private int size;
+	
+	/**
+	 * Maximum capacity of the heap, as we're using fixed sized array
+	 */
+	private static int MAX_CAPACITY;
 
     /**
      * Constructs a Binary Heap from the given array.
@@ -30,6 +35,7 @@ public class BinaryHeap {
     public BinaryHeap(int[] arr) {
        this.heap = arr;
        this.size = arr.length;
+       BinaryHeap.MAX_CAPACITY = size;
        heapify(heap);
     }
 
@@ -85,16 +91,16 @@ public class BinaryHeap {
     }
 
     /**
-     * Adds a new value to the Binary Heap.
+     * Adds a new value to the Binary Heap, if there's space available
      *
      * @param val the value to be added
      * @Time O(logn)
-     * @deprecated
     */
     public void add(int val) {
-        // Need to use more dynamic datastructure like dynamic array
-    	heap[size-1] = val;
-    	++size;
+    	if(size == BinaryHeap.MAX_CAPACITY) {
+    		return;
+    	}
+    	heap[size++] = val;
     	shiftUpwards(size-1);
     }
 
@@ -113,6 +119,7 @@ public class BinaryHeap {
      *
      * @return the maximum value
      * @Time O(1)
+     * @deprecated it's a min heap implementation
     */
     public int getMax() {
         return heap[size-1];
@@ -129,7 +136,7 @@ public class BinaryHeap {
     		return -1;
     	}
     	int min = getMin();
-    	heap[0] = heap[0] + heap[size-1] - (heap[0] = heap[size-1]);
+    	heap[0] = heap[size-1];
     	--size;
     	shiftDownwards(0);
     	return min;
@@ -174,8 +181,25 @@ public class BinaryHeap {
         return set(index, val);
     }
     
-    
+    /**
+     * Replace the value specified from the Binary Heap.
+     *
+     * @param oldVal the value should be replace
+     * @param newVal the new value to be set
+     * @return true if the operation was successful, false otherwise
+     * @Time O(n)
+    */
     public boolean replace(int oldVal, int newVal) {
-    	return false;
+    	int index = -1;
+    	for(int i=0; i<size; i++) {
+    		if(heap[i] == oldVal) {
+    			index = i;
+    			break;
+    		}
+    	}
+    	if(index < 0) {
+        	return false;
+    	}
+    	return setInSilent(index, newVal);
     }
 }
