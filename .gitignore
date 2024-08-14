@@ -1,2 +1,6 @@
+.project 
+.classpath
 
-/target/
+.settings/
+target/
+.metadata/
